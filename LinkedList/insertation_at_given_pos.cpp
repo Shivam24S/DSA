@@ -82,6 +82,51 @@ class LinkedList {
 
         }
 
+
+     void deleteAtBegin(){
+
+     
+        if(head == nullptr){
+            cout << "empty list" << endl;
+        }
+
+        Node* temp =head;
+
+        head=head->next;
+        delete temp;
+
+     }
+
+
+     void deleteAtEnd(){
+
+        if(head== nullptr){
+
+            cout << "empty list" <<endl;
+        }
+
+        if(head->next == nullptr){
+            delete head;
+            head = nullptr;
+            return;
+        }
+
+        Node* temp = head;
+
+        while(temp->next->next != nullptr){
+            temp= temp->next;
+        }
+
+        delete temp->next;
+        temp->next=nullptr;
+
+     }
+
+    
+
+
+
+
     
        void display() {
             Node* temp = head;
@@ -110,6 +155,10 @@ int main(){
       list.insertAtPosition(5,0);
 
       list.insertAtPosition(50,5);
+
+      list.deleteAtBegin();
+
+      list.deleteAtEnd();
 
 
 
