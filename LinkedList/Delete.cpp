@@ -77,79 +77,73 @@ class LinkedList{
 
     }
 
-    void deleteAtBegining(){
+
+    // delete at start
+    
+    void deleteAtStart(){
+
+
+
 
         if(head == nullptr){
-            cout<< "list is empty" << endl;
+            cout << "empty list" << endl;
             return;
         }
 
         Node* temp = head;
-        head =  head->next;
+
+        head=head->next;
         delete temp;
+
+
     }
 
+    // delete at end 
 
-    void deleteAtEnd(){
+    void deleteAtEnd () {
+
+        // no node available
 
         if(head == nullptr){
-            cout<< "list is empty" << endl;
+            cout << "empty list" << endl;
             return;
         }
+
+        // when only one node available
 
         if(head->next == nullptr){
             delete head;
-            head= nullptr;
+            head=nullptr;
             return;
         }
 
         Node* temp = head;
 
-        while (temp->next->next != nullptr){
+        while(temp->next->next != nullptr){
             temp= temp->next;
         }
+
         delete temp->next;
-        temp->next= nullptr;
-        
-    }
+        temp->next = nullptr;
 
-void deleteAtSpecificPos(int pos){
 
-    if(head == nullptr){
-        cout << "empty list" << endl;
-        return;
+
     }
 
 
-    if(pos == 0){
-        deleteAtBegining();
-        return;
-    }
-
-    Node*temp = head;
-
-    for(int i=0;i<pos-1 && temp != nullptr;i++){
-        temp=temp->next;
-    }
-
-    if(temp == nullptr || temp->next == nullptr){
-        cout<<"out of range" << endl;
-        return;
-    }
-
-    Node* NodeToDelete = temp->next;
-    temp->next=NodeToDelete->next;
-    delete NodeToDelete;
 
 
-}
+ 
 
+   
 
 };
 
 int  main(){
 
     LinkedList list;
+
+// insert
 
     list.insertAtBegining(10);
     list.insertAtBegining(20);
@@ -160,25 +154,22 @@ int  main(){
     list.insertAtSpecificPos(60,3);
 
     list.insertAtSpecificPos(100,4);
-      
-    list.insertAtSpecificPos(110,7);
+       
 
-    list.deleteAtBegining();
-
-    list.deleteAtEnd();
-
-    list.deleteAtSpecificPos(0);
-
-    list.deleteAtSpecificPos(2);
-
-     list.deleteAtSpecificPos(0);
+// delete 
 
 
-      
+list.deleteAtStart();
 
-        
+list.deleteAtEnd();
 
-    list.displayNode();
+list.deleteAtEnd();
+
+
+
+
+//read
+
     list.displayNode();
 
 
