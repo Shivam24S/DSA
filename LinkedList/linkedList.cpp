@@ -142,8 +142,65 @@ void deleteAtSpecificPos(int pos){
     delete NodeToDelete;
 
 
+
 }
 
+void updateAtStart (int newValue){
+    if(head == nullptr){
+        cout << "empty list" << endl;
+        return;
+    }
+
+
+    Node* temp = head;
+    head->data = newValue;
+
+    // cout << "updated head to  " << newValue << newValue;
+    return;
+
+
+
+}
+
+void updateAtLast (int newValue){
+
+       if(head == nullptr){
+        cout << "empty list" << endl;
+        return;
+    }
+
+    Node* temp = head;
+    while(temp->next != nullptr){
+        temp=temp->next;
+    }
+
+    temp->data = newValue;
+
+
+}
+
+void updateSpecific(int pos,int newValue){
+
+        if(head == nullptr){
+        cout << "empty list" << endl;
+        return;
+    }
+
+
+    Node* temp = head;
+    int index=0;
+
+    while(temp!=nullptr && index<pos){
+        temp=temp->next;
+        index++;
+    }
+
+    temp->data = newValue;
+
+    return;
+
+
+}
 
 };
 
@@ -167,18 +224,21 @@ int  main(){
 
     list.deleteAtEnd();
 
-    list.deleteAtSpecificPos(0);
+    // list.deleteAtSpecificPos(0);
 
     list.deleteAtSpecificPos(2);
 
-     list.deleteAtSpecificPos(0);
+    //  list.deleteAtSpecificPos(0);
 
 
-      
+
+list.updateAtStart(4);
 
         
+list.updateAtLast(200);
 
-    list.displayNode();
+list.updateSpecific(2,600);
+   
     list.displayNode();
 
 
