@@ -77,130 +77,165 @@ class LinkedList{
 
     }
 
-    void deleteAtBegining(){
+
+    void deleteAtStart (){
+
 
         if(head == nullptr){
-            cout<< "list is empty" << endl;
+            cout << "empty list" << endl;
+
             return;
         }
 
         Node* temp = head;
-        head =  head->next;
+        head=head->next;
         delete temp;
-    }
 
+
+    }
 
     void deleteAtEnd(){
 
         if(head == nullptr){
-            cout<< "list is empty" << endl;
+            cout << "empty list" << endl;
             return;
         }
 
-        if(head->next == nullptr){
+        Node* temp = head;
+
+        if(temp->next == nullptr){
             delete head;
             head= nullptr;
             return;
         }
 
+      while(temp->next->next!= nullptr){
+        temp=temp->next;
+
+      }
+
+      delete temp->next;
+      temp->next = nullptr;
+    
+
+    }
+
+    
+
+    void deleteAtSpecificPos(int pos){
+
+        if(head == nullptr){
+            cout << "empty list"<< endl;
+            return;
+        }
+
+        if(pos<0){
+            cout << "invalid position" << endl;
+            return;
+        }
+
+
+        if(pos==0){
+            deleteAtStart();
+            return;
+        }
+
+
         Node* temp = head;
 
-        while (temp->next->next != nullptr){
-            temp= temp->next;
+
+        for(int i =0; i<pos-1 && temp != nullptr;i++ ){
+
+            temp = temp->next;
+
         }
-        delete temp->next;
-        temp->next= nullptr;
+
+        Node* NodeToDelete = temp->next;
+        temp->next = NodeToDelete->next;
+        delete NodeToDelete;
+        return ;
+
+    }
+
+
+    void updateAtStart (int newValue){
+
+        if(head == nullptr){
+            cout << "empty list" << endl;
+            return;
+        }
+
+        Node* temp = head;
+
+        temp->data = newValue;
+        return;
         
     }
 
-void deleteAtSpecificPos(int pos){
 
-    if(head == nullptr){
-        cout << "empty list" << endl;
-        return;
-    }
-
-
-    if(pos == 0){
-        deleteAtBegining();
-        return;
-    }
-
-    Node*temp = head;
-
-    for(int i=0;i<pos-1 && temp != nullptr;i++){
-        temp=temp->next;
-    }
-
-    if(temp == nullptr || temp->next == nullptr){
-        cout<<"out of range" << endl;
-        return;
-    }
-
-    Node* NodeToDelete = temp->next;
-    temp->next=NodeToDelete->next;
-    delete NodeToDelete;
-
-
-
-}
-
-void updateAtStart (int newValue){
-    if(head == nullptr){
-        cout << "empty list" << endl;
-        return;
-    }
-
-
-    Node* temp = head;
-    head->data = newValue;
-
-    // cout << "updated head to  " << newValue << newValue;
-    return;
-
-
-
-}
-
-void updateAtLast (int newValue){
-
-       if(head == nullptr){
-        cout << "empty list" << endl;
-        return;
-    }
-
-    Node* temp = head;
-    while(temp->next != nullptr){
-        temp=temp->next;
-    }
-
-    temp->data = newValue;
-
-
-}
-
-void updateSpecific(int pos,int newValue){
+    void updateAtEnd(int newValue){
 
         if(head == nullptr){
-        cout << "empty list" << endl;
+            cout << "empty list" << endl;
+            return;
+        }
+
+        Node* temp = head;
+
+        while(temp->next != nullptr){
+            temp= temp->next;
+
+        }
+
+        temp->data = newValue;
         return;
+
+
     }
 
 
-    Node* temp = head;
-    int index=0;
 
-    while(temp!=nullptr && index<pos){
-        temp=temp->next;
-        index++;
+    void updateAtSpecificPos(int newValue,int pos){
+
+        if(head == nullptr){
+
+            cout << "empty list" << endl;
+            return;
+
+        }
+
+
+        if(pos ==0){
+            
+
+            updateAtStart(newValue);
+
+            return;
+        }
+
+        Node* temp = head;
+        
+
+        for(int i =0; i<pos&&temp!= nullptr;i++){
+            temp= temp->next;
+
+        }
+
+        if(temp == nullptr ){
+
+            cout<< "out of range" << endl;
+            return;
+        }
+
+        temp->data= newValue;
+        return;
+
+
     }
 
-    temp->data = newValue;
 
-    return;
+    
 
-
-}
 
 };
 
@@ -218,26 +253,24 @@ int  main(){
 
     list.insertAtSpecificPos(100,4);
       
-    list.insertAtSpecificPos(110,7);
+    // list.insertAtSpecificPos(110,7);
 
-    list.deleteAtBegining();
+    list.deleteAtStart();
 
     list.deleteAtEnd();
 
-    // list.deleteAtSpecificPos(0);
-
     list.deleteAtSpecificPos(2);
 
-    //  list.deleteAtSpecificPos(0);
+    // update
 
+    list.updateAtStart(24);
 
+    list.updateAtEnd(200);
 
-list.updateAtStart(4);
+    list.updateAtSpecificPos(10,100);
+    
 
-        
-list.updateAtLast(200);
-
-list.updateSpecific(2,600);
+ 
    
     list.displayNode();
 

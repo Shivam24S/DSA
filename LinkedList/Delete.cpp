@@ -77,13 +77,7 @@ class LinkedList{
 
     }
 
-
-    // delete at start
-    
-    void deleteAtStart(){
-
-
-
+    void deleteAtStart (){
 
         if(head == nullptr){
             cout << "empty list" << endl;
@@ -91,48 +85,128 @@ class LinkedList{
         }
 
         Node* temp = head;
-
         head=head->next;
         delete temp;
 
-
     }
 
-    // delete at end 
 
-    void deleteAtEnd () {
-
-        // no node available
+    void deleteAtEnd (){
 
         if(head == nullptr){
             cout << "empty list" << endl;
             return;
         }
 
-        // when only one node available
-
         if(head->next == nullptr){
             delete head;
-            head=nullptr;
+            head= nullptr;
             return;
         }
 
         Node* temp = head;
 
         while(temp->next->next != nullptr){
-            temp= temp->next;
+            temp = temp->next;
         }
 
         delete temp->next;
-        temp->next = nullptr;
+        temp->next=nullptr;
 
+    }
+
+
+    void deleteAtSpecificPos( int pos){
+
+            if(head == nullptr){
+            cout << "empty list" << endl;
+            return;
+        }
+
+       
+
+        if(pos == 0){
+            deleteAtStart();
+            return;
+        }
+
+         Node* temp = head;
+
+         for(int i=0; i< pos-1&& temp != nullptr;i++){
+            temp=temp->next;
+         }
+
+         Node* NodeToDelete = temp->next;
+         temp->next=NodeToDelete->next;
+         delete NodeToDelete;
+        
+
+    }
+
+    void updateAtStart (int newValue){
+
+        
+            if(head == nullptr){
+            cout << "empty list" << endl;
+            return;
+        }
+
+        Node* temp = head;
+
+        head->data = newValue;
+        return;
 
 
     }
 
 
+    void updateAtEnd (int newValue){
+
+               if(head == nullptr){
+            cout << "empty list" << endl;
+            return;
+        }
+
+    
+        Node* temp = head;
+
+        while(temp->next != nullptr){
+            temp = temp->next;
+        }
+
+        temp->data = newValue;
+        return;
 
 
+    }
+
+
+    void updateAtSpecificPos (int newValue, int pos){
+
+              if(head == nullptr){
+            cout << "empty list" << endl;
+            return;
+        }
+
+        Node* temp = head;
+
+        for(int i =0; i<pos-1&&temp != nullptr;i++){
+            temp=temp->next;
+        }
+
+        if(temp == nullptr){
+
+            cout << "out of range" << endl;
+            return;
+        }
+
+    
+        temp->data = newValue;
+        return;
+
+
+
+    }
  
 
    
@@ -163,10 +237,15 @@ list.deleteAtStart();
 
 list.deleteAtEnd();
 
-list.deleteAtEnd();
+list.deleteAtSpecificPos(2);
 
 
-list.de
+list.updateAtStart(50);
+
+list.updateAtEnd(50);
+
+list.updateAtSpecificPos(500,2);
+
 
 
 
