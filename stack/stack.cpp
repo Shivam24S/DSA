@@ -1,47 +1,56 @@
 
-
 #include <iostream>
+
 using namespace std;
 
 
-class Stack{
+class Stack {
 
+
+    public:
     int arr[5];
-    int top;
+    int  top;
 
 
-    
+   
     public:Stack(){
         top=-1;
     }
 
 
-    void push(int value){
-        if(top==4){
-            cout << " stack is full\n";
-        }else{
+
+
+    // add
+    void push(int value ){
+
+        if(top ==4){
+            cout<< " stack is full\n" ;
+        }else {
             top++;
-            arr[top] = value;
-            cout << value << " pushed into stack\n" ;
+            arr[top] =value;
+
+            cout << value << " value pushed in stack\n";
         }
+
     }
 
     void pop(){
-        if(top==-1){
-            cout << " stack is empty\n" ;
+        if(top == -1){
+            cout << "empty stack\n" ; 
         }else {
-           
-            cout<< arr[top] << " removed from stack\n" ;
-             top--;
+
+            cout << arr[top] << " removed from stack\n" ;
+            top--;
+
         }
     }
 
-
     void peek(){
+
         if(top == -1){
-            cout << " stack is empty\n" ;
+            cout << " empty stack\n" ;
         }else {
-            cout << " top element is "  <<  arr[top] << endl ;
+            cout << arr[top] << " this is my top stack element\n";
         }
 
     }
@@ -49,10 +58,9 @@ class Stack{
     void size(){
 
         if(top == -1){
-            cout << " stack is empty\n";
-
+            cout << " empty stack\n";
         }else {
-            cout << " size of the stack is " << top + 1 << endl;
+            cout << "total element in stack is " << top+1 << endl;
         }
 
     }
@@ -62,28 +70,39 @@ class Stack{
 
 int main(){
 
+
     Stack s;
 
+    // add
     s.push(10);
-
-    
     s.push(20);
-
-    
     s.push(30);
 
     
-    s.push(40);
 
+    // top element before delete
     s.peek();
 
+
+    s.size();
+
+
+
+// remove
     s.pop();
 
+// top element after delete will change
     s.peek();
+
+
+    // size after delete
 
     s.size();
 
     return 0;
 
+
+
+    
 
 }
