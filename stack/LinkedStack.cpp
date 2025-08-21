@@ -3,14 +3,14 @@
 using namespace std;
 
 
-class Node{
+class Node {
     public:
     int data;
     Node* next;
 
     Node(int value){
         data=value;
-        next= nullptr;
+        next=nullptr;
     }
 };
 
@@ -19,72 +19,90 @@ class Stack{
     Node* top;
     int count;
 
-    public:
-    Stack(){
-        top =nullptr;
-        count = 0;
+    public:Stack(){
+        top= nullptr;
+        count=0;
     }
 
+
     void push(int value){
-        Node* newNode = new  Node(value);
+
+        Node* newNode = new Node(value);
         newNode->next=top;
         top=newNode;
         count++;
-        cout<< value << " New node pushed in stack\n";
+
+        cout << " new node added in stack " << value << endl; 
+
+
     }
 
     void pop(){
-        if(top == nullptr){
-            cout << "empty stack \n";
-            return;
-        }
+
+      if(top == nullptr){
+        cout << " empty stack";
+        return;
+      }
 
 
-        cout << top->data << " removed from stack\n";
+      cout << top->data << " is deleted from stack" << endl;
 
-        Node* temp = top;
-        top = temp->next;
-        delete temp;
-        count--;
-
-     
-
-        
+      Node* temp = top;
+      top=temp->next;
+      delete temp;
+      count --;
 
 
     }
 
-       void peek(){
+    void size(){
 
-        if(top == nullptr){
-            cout << " empty stack" ;
-            return;
-        }
 
-        cout << top->data << " is the top element\n";
-            
-        }
 
-        void size(){
-            cout << "total element in stack is " << count << endl;
-        }
+        cout << " total element in stack is " << count << endl;
 
+    }
+
+    void peek(){
+
+        
+      if(top == nullptr){
+        cout << " empty stack";
+        return;
+      }else {
+        cout << " the top element is " << top->data << endl;
+      }
+
+    }
 
 };
+
+
 int main(){
 
     Stack s;
 
-    s.push(10);
 
+    // add
+    s.push(10);
+    
     s.push(20);
 
-    s.pop();
+    s.push(30);
 
-    s.peek();
 
     s.size();
 
 
+    // remove
+
+    s.pop();
+
+    s.size();
+
+    s.peek();
+
     return 0;
+
+
 }
