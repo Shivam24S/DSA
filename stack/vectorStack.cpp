@@ -1,8 +1,8 @@
 
+
 #include <iostream>
 #include <vector>
 using namespace std;
-
 
 
 class Stack{
@@ -10,89 +10,102 @@ class Stack{
 
     public:
 
+    // add 
+
     void push(int value){
+
         arr.push_back(value);
+
         cout<< value << " added in stack" << endl;
     }
 
+
     void pop(){
+
+        if(arr.empty()){
+            cout << "stack is empty" << endl;
+            return;
+
+        }
+
+        int topElement = arr.back();
+
+        cout << topElement << " removed from stack" << endl;
+
+        arr.pop_back();
+
         
-       if(arr.empty()){
-        cout << "stack is empty" << endl;
-        return;
-       }
-
-       int topElement = arr.back();
-
-       cout << topElement << " is deleted from stack" << endl;
-
-       arr.pop_back();
     }
 
     void peek(){
-        if(arr.empty()){
-            cout << "array is empty" <<endl;
-            return;
-        }
-        cout<< arr.back() << " is the top element in stack" << endl;
+
+        cout << arr.back() << " is the top element" << endl;
+
     }
 
     void size(){
-        if(arr.empty()){
-            cout << "array is empty" << endl;
-            return;
-        }
+        cout << "total element in array is "  << arr.size() << endl;
+    }
 
-        cout << arr.size() << "size of the array"  << endl;
+    void deleteAll(){
+
+        arr.clear();
+
+        cout << " stack is cleared now" << endl;
+    
     }
 
     void display(){
 
-          if(arr.empty()){
-            cout << "array is empty" << endl;
-            return;
+        for(int i=arr.size()-1;i>=0;i--){
+            cout<<" stack element " << arr[i] << " " << endl;
         }
 
-        for(int i= arr.size()-1;i>=0;i--){
-            cout << arr[i] << " ";
-        }
-        cout << endl;
+
 
     }
 
-    void clear(){
-        arr.clear();
-        cout << "Stack is cleared" << endl;
-    }
 };
+
+
+
 
 
 int main(){
 
-    Stack v1;
+    Stack s1;
 
-    v1.push(10);
-    
-    v1.push(10);
+    // add
+    s1.push(10);
 
-    v1.push(40);
+    s1.push(20);
 
+    s1.push(30);
 
-    v1.pop();
+    s1.push(40);
 
-    v1.peek();
-
-    v1.size();
-
-    v1.display();
-
-    v1.clear();
-
-    
-    v1.display();
+    s1.push(50);
 
 
+
+
+    // remove
+
+    s1.pop();
+
+    s1.peek();
+
+    s1.size();
+
+    // s1.deleteAll();
+
+     s1.size();
+
+     s1.display();
 
     return 0;
+
+     
+
 
 }
