@@ -44,11 +44,19 @@ class Queue{
     }
 
     void peek(){
+           if(front == -1 || front > rear){
+            cout << " queue is empty" << endl;
+            return;
+        }
 
         cout << arr[front] << " is the  front element in the queue" << endl;
     }
 
     void display(){
+           if(front == -1 || front > rear){
+            cout << " queue is empty" << endl;
+            return;
+        }
 
         for(int i = front; i<=rear;i++){
             cout << arr[i] <<  " "  << endl;
