@@ -31,7 +31,7 @@ class Queue{
 
     }
 
-    void Deque(){
+    void Dequeue(){
 
         if(front == -1 || front > rear){
             cout << " queue is empty" << endl;
@@ -74,7 +74,7 @@ int main(){
 
     // remove
 
-    q1.Deque();
+    q1.Dequeue();
 
     // front element 
 
