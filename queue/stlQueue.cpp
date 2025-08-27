@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <queue>
 
@@ -8,22 +10,21 @@ int main(){
     queue<int>q;
 
     q.push(10);
+
     q.push(20);
+
     q.push(30);
 
-    cout << q.front() << " is the front element in queue" << endl;
+    cout << q.front( ) << " is the front element in queue" << endl;
 
-    cout << q.back() << " is the rear element in queue" << endl;
+    cout << q.back() << "is the last element in queue" << endl;
 
-     cout << q.back() << " is removed from  queue" << endl;
     q.pop();
 
-    cout << " queue elements: ";
-    while(!q.empty()){
-        cout<< q.front() << " ";
-        q.pop();
+    cout << q.front() << "is the front element in queue" << endl;
 
-    }
-    cout << endl;
+    return 0;
+
+
 
 }

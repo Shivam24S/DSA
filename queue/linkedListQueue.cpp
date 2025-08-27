@@ -1,6 +1,6 @@
 
-
 #include <iostream>
+
 using namespace std;
 
 
@@ -11,9 +11,8 @@ class Node{
 
     Node(int value){
         data=value;
-        next=nullptr;
+        next = nullptr;
     }
-
 };
 
 
@@ -26,64 +25,68 @@ class linkedListQueue{
     }
 
     void enqueue(int value){
+
         Node* newNode = new Node(value);
-        
-        if(rear==nullptr){
+
+        if(rear== nullptr){
             front = rear = newNode;
+            
         }else {
-            rear->next = newNode;
-            rear=newNode;
+              rear->next = newNode;
+              rear= newNode;
         }
-        cout << value  << " added in queue" << endl;
+
+        cout << value << " added in queue" << endl;
+
     }
 
     void dequeue(){
 
         if(front == nullptr){
-            cout  << " queue is empty" << endl;
+            cout << " queue is empty" << endl;
             return;
         }
 
-        Node* temp  = front;
-        cout << front->data << " is removed from queue\n";
-        front= front->next;
-        if(front ==nullptr){
-            rear = nullptr;
-        }
+        Node* temp = front;
+        cout << temp->data << " is removed from queue" << endl;
+        front = front->next;
         delete temp;
 
     }
 
     void peek(){
 
-          if(front == nullptr){
-            cout  << " queue is empty" << endl;
+        if(front == nullptr){
+            cout << " queue is empty" << endl;
             return;
         }
 
-        cout << front->data << " is the front element in queue" << endl;
-
+        cout << front->data << " is the top element in queue" << endl;
 
     }
 
     void display(){
-          if(front == nullptr){
-            cout  << " queue is empty" << endl;
+        
+         if(front == nullptr){
+            cout << " queue is empty" << endl;
             return;
         }
 
-        Node* temp =front;
+        Node* temp = front;
 
-        cout << " queue element are: ";
-        while(temp!=nullptr){
+        cout << "elements are in queue ";
+        while(temp!= nullptr){
             cout << temp->data << " ";
-            temp = temp->next;
+            temp= temp->next;
         }
-        cout << endl;
+        cout<< endl;
+
 
     }
-};
 
+
+
+};
 
 
 int main(){
@@ -91,8 +94,12 @@ int main(){
     linkedListQueue q;
 
     q.enqueue(10);
+    
     q.enqueue(20);
+
     q.enqueue(30);
+
+    // remove
 
     q.dequeue();
 
@@ -101,4 +108,5 @@ int main(){
     q.display();
 
     return 0;
+
 }

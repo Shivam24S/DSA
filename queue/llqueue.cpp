@@ -1,6 +1,6 @@
 #include <iostream>
-
 using namespace std;
+
 
 
 class Node{
@@ -12,29 +12,29 @@ class Node{
         data = value;
         next = nullptr;
     }
-
-
 };
 
-class linkedListQueue {
+
+class linkedListQueue{
     Node* front;
     Node* rear;
 
     public:linkedListQueue(){
         front = rear = nullptr;
-    }
-
-    
+    };
     void enqueue(int value){
         Node* newNode = new Node(value);
 
-        if(rear == nullptr){
+        if(rear== nullptr){
             front = rear = newNode;
         }else {
             rear->next = newNode;
             rear = newNode;
+
         }
-        cout << value << " added in queue" << endl;
+        
+            cout << value << " added in queue" << endl;
+
     }
 
     void dequeue(){
@@ -46,48 +46,49 @@ class linkedListQueue {
 
         Node* temp = front;
 
-        cout << front ->data << " is removed from stack" << endl;
+        cout << front->data << " is removed from queue" << endl;
 
         front = front->next;
+
         if(front == nullptr){
-            rear == nullptr;
+            rear = nullptr;
         }
+
         delete temp;
 
     }
 
     void peek(){
 
-         if(front == nullptr){
+        if(front == nullptr){
             cout << " queue is empty" << endl;
             return;
         }
 
-        cout << front->data << " is the first element in the queue" << endl;
-        
+        cout << front->data << " is the front element in queue" << endl;
     }
 
     void display(){
 
-            if(front == nullptr){
+          if(front == nullptr){
             cout << " queue is empty" << endl;
             return;
         }
 
-
         Node* temp = front;
 
-        cout << " queue element are :";
-        while(temp!= nullptr){
+        cout << "queue element are ";
+        while(temp!=nullptr){
             cout << temp->data << " ";
-            temp= temp->next;
+            temp = temp->next;
         }
-        cout << endl;
+        cout<< endl;
 
-        
     }
 
+
 };
+
 
 int main(){
 
@@ -95,16 +96,14 @@ int main(){
 
     q.enqueue(10);
 
-    q.enqueue(20);
+      q.enqueue(20);
+        q.enqueue(30);
 
-    q.enqueue(30);
+        q.dequeue();
 
-    q.dequeue();
-    
-    q.peek();
+        q.peek();
 
-    q.display();
-
+        q.display();
 
 
 

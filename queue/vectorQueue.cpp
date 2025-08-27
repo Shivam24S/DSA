@@ -1,21 +1,20 @@
-
 #include <iostream>
+
 #include <vector>
 
 using namespace std;
 
 
-class vectorQueue{
 
-    vector <int>q;
+class  vectorQueue{
+    vector <int> q;
 
     public:
 
     void enqueue(int value){
         q.push_back(value);
 
-        cout << value << " added in queue" << endl;
-
+        cout << value << " add in queue" << endl;
     }
 
     void dequeue(){
@@ -25,50 +24,75 @@ class vectorQueue{
             return;
         }
 
-        cout << q.front() << " is removed from stack" << endl; 
+        cout << q.front() << " is removed from queue" << endl;
 
         q.erase(q.begin());
 
-    
+
     }
 
     void peek(){
-        if(q.empty()){
+
+         if(q.empty()){
             cout << " queue is empty" << endl;
             return;
         }
-        cout << q.front() << " is the first element in the queue" << endl;
+
+          cout << q.front() << " is the front element in queue" << endl;
+
     }
+
 
     void display(){
-          if(q.empty()){
+
+           if(q.empty()){
             cout << " queue is empty" << endl;
             return;
         }
 
-        cout <<  " queue elements:";
-        for (int i :q) cout << i << " ";
+        
+        cout << "queue elements are ";
+        for (int i: q) {
+            cout << i << " ";
+
+        }
+
         cout << endl;
+
+
 
     }
 
+
 };
+
 
 int main(){
 
     vectorQueue q;
 
+    // add
+
     q.enqueue(10);
     
     q.enqueue(20);
-    
-    q.enqueue(30);
+
+     q.enqueue(30);
+
+    //  remove
 
     q.dequeue();
 
+   
+
+    //  front element
+
     q.peek();
 
+    // display
+
     q.display();
+
 
     return 0;
 }
