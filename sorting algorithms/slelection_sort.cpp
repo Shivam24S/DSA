@@ -1,36 +1,76 @@
+
+// #include <iostream>
+
+// using namespace std;
+
+
+
+// int main(){
+//     int arr[]={5,8,9,1,3,6};
+//     int  n=6;
+
+
+//     for(int i=0;i<n-1;i++){
+//         int smallestIndex = i;
+
+//         for(int j=i+1;j<n;j++){
+//             if(arr[j]<arr[smallestIndex]){
+//                 smallestIndex=j;
+//             }
+//         }
+
+//         int temp = arr[i];
+//         arr[i]=arr[smallestIndex];
+//         arr[smallestIndex]=temp;
+//     }
+    
+//     cout << "sorted elements are ";
+//     for(int i=0;i<n;i++){
+//         cout<<arr[i] << " ";
+//     }
+//     cout<<endl;
+// }
+
+
+
 #include <iostream>
 
 using namespace std;
 
 
-int main(){
+void selectionSort(int arr[],int n){
 
-    int arr[]={4,8,9,4,2,3};
-    int n = 6;
-
-
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n-1;i++){
         int smallestIndex = i;
 
         for(int j=i+1;j<n;j++){
             if(arr[j]<arr[smallestIndex]){
                 smallestIndex=j;
             }
-        
         }
 
-        swap(arr[i],arr[smallestIndex]);
-        
+        int temp = arr[i];
+        arr[i]=arr[smallestIndex];
+        arr[smallestIndex]=temp;
     }
-
-
-    cout << "sorted element are ";
-    for(int i =0;i<n;i++){
-        cout<< arr[i] << " ";
+    
+    cout << "sorted elements are ";
+    for(int i=0;i<n;i++){
+        cout<<arr[i] << " ";
     }
-cout<<endl;
+    cout<<endl;
+
 
 
 }
 
+int main(){
 
+    int arr[]={5,4,6,3,1,2};
+    int n=6;
+
+    selectionSort(arr,n);
+
+    return 0;
+
+}
