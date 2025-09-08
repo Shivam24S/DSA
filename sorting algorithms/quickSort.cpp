@@ -1,33 +1,41 @@
-
-
 #include <iostream>
-
 #include <vector>
-
 using namespace std;
 
-int partition(vector<int>&arr,int start,int end){
 
-   int idx = start-1,  pivot = arr[end];
+int partition(vector<int>&arr, int start,int end){
 
-   for(int j = start;j<end;j++){
-    if(arr[j]<=pivot){
-        idx++;
-        swap(arr[j],arr[idx]);
+    int idx= start-1; int pivot = arr[end];
+
+    for(int j= start;j<end;j++){
+        if(arr[j]<=pivot){
+            idx++;
+            // swap(arr[j],arr[idx]);
+            int temp = arr[j];
+            arr[j]=arr[idx];
+            arr[idx] = temp;
+        }
     }
-   }
-   idx++;
-  swap(arr[end],arr[idx]);
-  return idx;
+    idx++;
+
+    // swap(arr[end],arr[idx]);
+
+    int temp = arr[end];
+    arr[end]= arr[idx];
+    arr[idx]=temp;
+
+    return idx;
+
+
+    
 }
 
 
 
-void quickSort(vector<int>&arr,int start,int end){
+void quickSort(vector<int>&arr, int start,int end){
 
     if(start<end){
 
-        
         int pivIdx = partition(arr,start,end);
 
         quickSort(arr,start,pivIdx-1);
@@ -39,26 +47,23 @@ void quickSort(vector<int>&arr,int start,int end){
     }
 
 
-
-
 }
 
 
 
 int main(){
-vector<int>arr={10,8,5,9,6,3,4};
+    vector<int>arr= {8,9,1,5,6,2,3};
 
-quickSort(arr,0,arr.size()-1);
+    quickSort(arr,0,arr.size()-1);
 
 
-cout << "sorted elements are ";
-for(int i =0;i<arr.size();i++){
-    cout<< arr[i] << " ";
+    cout << "sorted elements are ";
+    for(int i=0;i<arr.size();i++){
+        cout << arr[i] << " ";
+    }
+    cout<<endl;
 
-}
-cout<<endl;
 
 
     return 0;
-
 }
