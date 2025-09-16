@@ -1,23 +1,28 @@
 
 
 // #include <iostream>
-// #include <vector>
+
+// #include<vector>
 
 // using namespace std;
 
 
-// int binarySearch(const vector<int>&arr,int start,int end,int seachingValue){
+
+// int  binarySearch(const vector<int>arr,int start,int end,int searchingValue){
 
 //     if(start<=end){
-//         int mid = start + (end-start)/2;
 
-//         if(arr[mid]==seachingValue){
+//         int mid = start + (end- start)/2;
+
+
+//         if(arr[mid] == searchingValue){
 //             return mid;
-//         }else if(arr[mid]<seachingValue){
-//             return binarySearch(arr,mid+1,end,seachingValue);
+//         }else if ( arr[mid]<searchingValue){
+//             return binarySearch(arr,mid+1,end,searchingValue);
 //         }else {
-//             return binarySearch(arr,start,mid-1,seachingValue);
+//             return binarySearch(arr,start,mid-1,searchingValue);
 //         }
+
 
 //     }
 //     return -1;
@@ -27,52 +32,58 @@
 
 
 
-
 // int main(){
 
-//     const vector<int>arr={1,2,3,4,5,6};
+//     const vector<int>arr={1,2,3,4,5,6,7};
 
-//     int searchingValue = 7;
-
+//     int searchingValue=10;
 
 //     int idx = binarySearch(arr,0,arr.size()-1,searchingValue);
 
+
 //     if(idx == -1){
-//         cout << "element not found" ;
+//         cout << " element not found in array";
 //     }else {
-//         cout << searchingValue << " is at index position " << idx << endl;
+//         cout << searchingValue <<  " is at index position " << idx << endl;
 //     }
 
-
-
-
 //     return 0;
+
 // }
 
+
+
+// suppose if array is not sorted then how will you perform binary search
 
 
 
 
 
 #include <iostream>
-#include <vector>
+
+#include<vector>
+
 #include <algorithm>
 
 using namespace std;
 
 
-int binarySearch( vector<int>&arr,int start,int end,int seachingValue){
+
+int  binarySearch( vector<int>arr,int start,int end,int searchingValue){
 
     if(start<=end){
-        int mid = start + (end-start)/2;
 
-        if(arr[mid]==seachingValue){
+        int mid = start + (end- start)/2;
+
+
+        if(arr[mid] == searchingValue){
             return mid;
-        }else if(arr[mid]<seachingValue){
-            return binarySearch(arr,mid+1,end,seachingValue);
+        }else if ( arr[mid]<searchingValue){
+            return binarySearch(arr,mid+1,end,searchingValue);
         }else {
-            return binarySearch(arr,start,mid-1,seachingValue);
+            return binarySearch(arr,start,mid-1,searchingValue);
         }
+
 
     }
     return -1;
@@ -82,26 +93,25 @@ int binarySearch( vector<int>&arr,int start,int end,int seachingValue){
 
 
 
-
 int main(){
 
-     vector<int>arr={4,5,8,6,2,1,3,7,8};
+     vector<int>arr={8,9,6,7,5,2,3,1};
 
-    sort(arr.begin(),arr.end());
+    //  1,2,3,5,6,7,8,9
 
-    int searchingValue = 7;
+     sort(arr.begin(),arr.end());
 
+    int searchingValue=6;
 
     int idx = binarySearch(arr,0,arr.size()-1,searchingValue);
 
+
     if(idx == -1){
-        cout << "element not found" ;
+        cout << " element not found in array";
     }else {
-        cout << searchingValue << " is at index position " << idx << endl;
+        cout << searchingValue <<  " is at index position " << idx << endl;
     }
 
-
-
-
     return 0;
+
 }
